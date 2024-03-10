@@ -1,0 +1,40 @@
+.page {
+    padding-top:80px;
+    page-break-after: always; /* This ensures a page break after every .page element */
+    page-break-before: always; /* This ensures a page break before every .page element */
+    page-break-inside: avoid; /* This tries to avoid breaking inside .page elements */
+
+    break-before: page; /* CSS3 equivalent of page-break-before: always; */
+    break-after: page;  /* CSS3 equivalent of page-break-after: always; */
+}
+
+.only-print {
+    display: none;
+}
+
+@media print {
+    body, html {
+        background: white;
+        color: black;
+    }
+
+    .some-sort-of-page {
+        padding: 20px;
+    }
+
+    .qr-codes img {
+        margin: 10px;
+    }
+
+    .input-field, button {
+        display: none; /* Hide inputs and buttons when printing */
+    }
+
+    .do-not-print {
+        display: none;
+    }
+
+    .only-print {
+        display: block;
+    }
+}

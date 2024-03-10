@@ -1,0 +1,75 @@
+body{
+	background-color: #181B21;
+	color: white;
+}
+
+.koad-was-here{
+	display: none;
+}
+
+.some-sort-of-layout{
+	border: 1px solid #66666633;
+	background-color: #66666611;
+	padding:20px;
+	margin:auto;
+	max-width: 1220px;
+}
+		
+.some-sort-of-page{
+	border: 1px solid #66666655;
+	background-color: #66666622;
+	padding:20px;
+	margin:20px;
+}
+
+.flex {
+  display: flex; /* This enables Flexbox layout */
+}
+
+.flex-col {
+  flex-direction: column; /* This sets the flex direction to column, stacking items vertically */
+}
+
+.justify-between {
+  justify-content: space-between; /* This distributes items evenly in the container, with the first item at the start, the last item at the end, and equal space between the rest */
+}
+
+.qr-codes-container {
+  display: flex; /* Establishes flex container */
+  justify-content: center; /* Centers flex items on the main axis (horizontally) */
+  align-items: center; /* Centers flex items on the cross axis (vertically) */
+  flex-wrap: wrap; /* Prevents wrapping so all items stay in a single row */
+}
+
+.qr-codes-contained {
+  margin: 10px; /* Adds space between QR code blocks */
+  display: block; /* Ensures images are block-level for margin auto to work */
+  border: 1px solid #66666677;
+  background-color: #66666622;
+  border-radius: 7px;
+  padding: 20px;
+}
+
+.qr-code-image img {
+  display: block; /* Ensures images are block-level for margin auto to work */
+  margin: auto; /* Centers the image within its container */
+  max-width: 100%; /* Ensures QR code images are responsive and fit their containers */
+  height: auto; /* Maintains aspect ratio */
+}
+
+a{
+	color:#999;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+h3{
+	color:#eee;
+}
+
+
+a:hover{
+	color:#aaa;
+	background-color: #FFFFFF22;
+	text-decoration: none;
+}

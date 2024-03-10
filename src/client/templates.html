@@ -1,0 +1,68 @@
+<template name='ApplicationLayout'>
+	<div class="some-sort-of-layout">
+		{{> yield}}
+	</div>
+</template>
+
+<template name='QRCode'>
+	<div class="qr-code-image">
+		<img src="{{QRCodeImageSrc}}">
+	</div>
+</template>
+
+<template name='CallForwardingCalculator'>
+	<div class="flex flex-col justify-between">
+
+		<div class="do-not-print">
+			<h4 class="text-link-100">Call Forwarding on an iPhone is shite.</h4>
+			<div class="articleTemplate pt-4">
+				<p>Setting up call forwarding on an iPhone can be less straightforward compared to some Android devices where you might have direct settings options. For iPhones, call forwarding is typically enabled by dialing specific codes.</p>
+				<p>Remember, the specific codes and steps might vary slightly depending on your carrier, so if these steps don't work, it's a good idea to check with your carrier for the exact procedure. Some carriers might offer an app or settings menu option for managing call forwarding directly on your iPhone, bypassing the need for dial codes.</p>
+				<p>Call forwarding allows you to forward any calls you receive to a different phone number. There are different types of call forwarding, and different codes to enable and disable them. </p>
+				<p>Here’s a table that shows the different types of call forwarding, what they do, and how to enable and disable them on Public Mobile:</p>
+				<table><thead><tr><th>Type of Call Forwarding</th><th>What it does</th><th>How to Enable</th><th>How to Disable</th><th>Example</th></tr></thead><tbody><tr><td>Unconditional</td><td>Redirects all incoming calls to another number</td><td>Dial * 21 * + ten-digit phone number + '#' + SEND</td><td>Dial '#21#'</td><td>* 21 *6472220000#SEND</td></tr><tr><td>Busy</td><td>Forwards incoming calls to another number when the line is in use</td><td>Dial * 67 * + ten-digit phone number + '#' + SEND</td><td>Dial '#67#'</td><td>* 67 *6472220000#SEND</td></tr><tr><td>Not Reachable</td><td>Redirects incoming calls when your phone is unable to take a call</td><td>Dial * 62 * + ten-digit phone number + '#' + SEND</td><td>Dial '#62#'</td><td>* 62 *6472220000#SEND</td></tr><tr><td>No Reply</td><td>Redirects incoming calls when nobody answers</td><td>Dial * 61 * + ten-digit phone number + '#' + SEND</td><td>Dial '#61#'</td><td>* 61 *6472220000#SEND</td></tr><tr><td>Variable</td><td>Redirects incoming calls after the call has not been answered for a specified period of time</td><td>Dial * 004 *  + ten-digit phone number** + (number of seconds)# + SEND</td><td>Dial ‘#004#’</td><td>* 004 * 6472220000 ** 5#SEND</td></tr></tbody></table>
+			</div>
+			<hr>
+			<span>you can use this calculator to generate some QR codes that you can scan with your iPhone instead of manually dialing the codes above.  You can also click the QR code from your phone if you are using your iPhone to view this page.  Your phone number does not leave your browser, and is never sent to anyone on the internet.</span>
+		</div>
+		<div class="page page-one">
+			<center>
+				<div class="input-field do-not-print">
+					<label for="phoneNumber">Enter the phone number you with to forward to:</label>
+					<input type="text" id="phoneNumber" placeholder="Enter number to begin">
+				</div>
+				<div class="only-print">
+					<span>the following will forward to</span>
+					<h3>{{phoneNumber}}</h3>
+				</div>
+			</center>
+			<div id="qrCodesContainer" class="qr-codes qr-codes-container">
+				{{#each forwardingTypes}}
+					<a href="tel:{{prefix}}{{phoneNumber}}#" class="qr-codes-contained">
+						<div class="qr-code-type">
+							<center><span>{{description}}</span><br></center>
+						</div>
+						<center><h3>{{prefix}}{{phoneNumber}}#</h3></center>
+						{{> QRCode}}
+					</a>
+				{{/each}}
+			</div>
+		</div>
+		<div class="page page-two do-not-print">
+			<center>
+				<span>you can disable call forwarding aswell.</span>
+			</center>
+			<div id="qrCodesContainer" class="qr-codes qr-codes-container">
+				{{#each forwardingTypes}}
+					<a href="tel:{{disable}}#" class="qr-codes-contained">
+						<center>
+							<span>{{description}}</span>
+							<h3>{{disable}}#</h3>
+							{{> QRCode disable}}
+						</center>
+					</a>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</template>
