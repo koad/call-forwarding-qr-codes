@@ -1,2 +1,4 @@
-koad:io
+koad:io-core
+koad:io-router
+koad:io-template-helpers
 koad:io-theme-engine
